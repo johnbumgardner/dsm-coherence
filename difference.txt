@@ -1,0 +1,9 @@
+1,8d0
+< input format: ./dsm <cache_size> <assoc> <block_size> <num_processors> <dir_type> <trace_file> 
+<  *----------------------------------------------*
+<  *	 Protocol Lookup Table 			*
+<  *----------------------------------------------*
+<  * Directory Type 	 Protocol Name 		*
+<  *	 0 		 MESI DSM with FBV 	*
+<  *	 1 		 MESI DSM with SCI 	*
+<  *----------------------------------------------*
