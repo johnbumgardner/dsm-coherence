@@ -153,3 +153,16 @@ void sendInv(ulong addr, int proc_num){
 void sendInt(ulong addr, int proc_num) {
 	processor_cache[proc_num]->Int(addr);
 }
+int sharers_exclude(ulong addr, int proc_no) {
+        int count = 0;
+        for (int i = 0; i < num_processors; i++){
+                if (i!=proc_no) {
+                  if (processor_cache[i]->find_line(addr) != NULL) {
+                        if (processor_cache[i]->find_line(addr)->get_state() != I) {
+                        count++;
+                        }
+                  }
+                }
+        }
+        return count;
+}
