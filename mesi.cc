@@ -235,8 +235,6 @@ void MESI::Int(ulong addr) {
 }
 
 void MESI::Inv(ulong addr) { 
-	
-	cache_state state;
     cache_line *line = find_line(addr);
     if (line != NULL) {
     	invalidations++;
