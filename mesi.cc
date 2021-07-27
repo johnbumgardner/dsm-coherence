@@ -222,14 +222,24 @@ void MESI::Int(ulong addr) {
 	// Update the relevant counter, if the cache copy is dirty,
 	// same needs to be written back to main memory. This is 
 	// achieved by simply updating the writeback counter
+	cache_state state;
+	interventions++;
+    cache_line *line = find_line(addr);
+    if (line != NULL) {
+    	state = line->get_state();
+    	if(state == M || state == E) {
+    		write_backs++;
+    		line->set_state(S);
+    	}
+    }
 }
 
 void MESI::Inv(ulong addr) { 
 	
-	// YOUR CODE HERE
-	// Refer Inv description in the handout
-
-	// Update the relevant counter, if the cache copy is dirty,
-	// same needs to be written back to main memory. This is 
-	// achieved by simply updating the writeback counter
+	cache_state state;
+    cache_line *line = find_line(addr);
+    if (line != NULL) {
+    	invalidations++;
+    	line->set_state(S);
+    }
 }

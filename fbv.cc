@@ -11,15 +11,12 @@ void FBV::add_sharer_entry(int proc_num){
 }
 
 void FBV::remove_sharer_entry(int proc_num){
-	// YOUR CODE HERE
-	// Reset the bit vector entry
+	bit[proc_num] = false;
 }
 
 int FBV::is_cached(int num_proc){
 	// YOUR CODE HERE
-	// Check bit vector for any set bit. 
-	// If set, return 1, else send 0
-	return false;
+	return bit[proc_num];
 }
 
 int FBV::others_are_sharing(int proc_num, int num_proc) {
