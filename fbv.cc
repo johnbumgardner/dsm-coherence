@@ -16,7 +16,12 @@ void FBV::remove_sharer_entry(int proc_num){
 
 int FBV::is_cached(int num_proc){
 	// YOUR CODE HERE
-	return bit[proc_num];
+	// Check bit vector for any set bit. 
+	// If set, return 1, else send 0
+	for (int p = 0; p < num_proc; p++) {
+		if (bit[p] == true) return true;
+	}
+	return false;
 }
 
 int FBV::others_are_sharing(int proc_num, int num_proc) {
