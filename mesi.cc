@@ -144,7 +144,8 @@ void MESI::signalRd(ulong addr, int processor_number) {
 
 	// Send Intervention or Invalidation
 
-	// Update the vector/list\cache_state state;
+	// Update the vector/list
+	cache_state state;
     cache_line * line = find_line(addr);
 
     if(line !=NULL){
