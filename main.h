@@ -18,5 +18,6 @@ int sharers(ulong addr);
 void simulate_caches(char *fname, int instr_count);
 void sendInt(ulong addr, int proc_num);
 void sendInv(ulong addr, int proc_num);
+int sharers_exclude(ulong addr, int proc_no);
 //
 #endif
