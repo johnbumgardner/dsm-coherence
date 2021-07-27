@@ -223,12 +223,12 @@ void MESI::Int(ulong addr) {
 	// same needs to be written back to main memory. This is 
 	// achieved by simply updating the writeback counter
 	cache_state state;
-	interventions++;
+	//interventions++;
     cache_line *line = find_line(addr);
     if (line != NULL) {
     	state = line->get_state();
     	if(state == M || state == E) {
-    		write_backs++;
+    		//write_backs++;
     		line->set_state(S);
     	}
     }
