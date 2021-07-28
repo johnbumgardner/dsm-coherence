@@ -55,7 +55,7 @@ void SSCI::sendInv_to_sharer(ulong addr, int num_proc, int proc_num){
 	cache_list.clear();
 	cache_list.push_back(proc_num);
 	// Invoke the sendInv function defined in the main function
-	sendInv(addr);
+	sendInv(addr, proc_num);
 
 }
 
@@ -64,5 +64,9 @@ void SSCI::sendInt_to_sharer(ulong addr, int num_proc, int proc_num){
 	//
 	// Invoke the sendInt function defined in the main function
 	// for all the entries in the list except for proc_num. 
-	sendInt(addr);
+	for (int p = 0; p < num_proc; p++) {
+		if ((p != proc_num) && bit[p]) {
+			sendInv(addr, p);
+		}
+	}
 }
